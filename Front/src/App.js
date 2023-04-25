@@ -1,9 +1,10 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-import Dummy_Component from "dummy-component";
+import services from './servicios';
 
 function App() {
+  const S = services
   return (
     <div className="App">
       <header className="App-header">
@@ -13,13 +14,13 @@ function App() {
         </p>
         <a
           className="App-link"
-          href="https://reactjs.org"
+          href="http://localhost:5225/Services"
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Available Services
         </a>
-        <Dummy_Component/>
+        <S/>
       </header>
     </div>
   );
