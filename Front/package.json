@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "dummy-component": "git+https://github.com/recraftrelic/dummy-react-npm-module.git",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-scripts": "3.0.1",
-    "dummy-component": "git+https://github.com/recraftrelic/dummy-react-npm-module.git"
+    "react-scripts": "3.0.1"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -28,5 +28,9 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.1",
+    "@types/react-dom": "^18.2.3"
   }
 }
