@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@500&family=Roboto&display=swap');
+
+.card {
+  background-color: #2A1F1Fdd;
+  display: flex;
+  justify-content: center;            /*alineo al centro horizontalmente*/
+  align-items: center;                /*alineo al centro verticalmente*/
+  flex-direction: column;
+  height: 350px;
+  width: 1000px;
+  border-radius:15px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* Estilos adicionales para el componente centrado */
+  color: #ffffff;
+  max-width: max-content;
+}
+
+.numberStep{
+  position: absolute;
+  top: 5px;
+  right: 5px;
+}
+
+.title{
+  font-size: 80px;
+  padding: 25px 20px 5px 25px;
+}
+
+.subtitle{
+  font-size: 25px;
+  font-family: 'Roboto', sans-serif;
+  padding: 8px 10px 0 10px;
+}
+
+.content{
+  font-size: 20px;
+}
+
+button{
+  font-family: 'Roboto', sans-serif;
+  font-weight: 650;
+  color: #ffffff;
+  background-color: #A8A14A;
+  padding: 10px 70px;
+  border-radius: 5px;
+  font-size: 15px;
+}
+
+.mainButton{
+  color: #ffffff;
+  background-color: transparent;
+    /*border: 10px #ffffff solid 15px;*/
+  border-width: 1px; 
+  border-style: solid;
+  border-color: #ffffff;
+  margin: 50px 0px 40px 0px;
+  
+}
+
+button:hover{
+  box-shadow: 0px 2px 4px rgba(255, 255, 255, 0.4);
+  border-width: 1px; 
+  border-color: #ffffff;
+  cursor: pointer;
+}
+
+.mainButton:hover{
+  box-shadow: 0px 2px 4px rgba(255, 255, 255, 0.4);
+  border-width: 1px; 
+  border-color: #b516ff;
+  cursor: pointer;
+}

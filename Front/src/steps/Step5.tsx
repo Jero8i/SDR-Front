@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box, Button, Grid } from '@material-ui/core';
-import { Item, Reservation } from './types';
+import { Item, Reservation } from '../types';
 import { Stack } from '@mui/material';
-import { createReservation } from './api';
+import { createReservation } from '../api';
 
 interface Step5Props {
     reservation: Reservation;

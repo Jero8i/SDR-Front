@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Button, FormControl, Grid, InputLabel, MenuItem, Select } from '@material-ui/core';
-import { Item, Reservation, Service } from './types';
+import { Item, Reservation, Service } from '../types';
 import { Stack } from '@mui/material';
-import { fetchServices } from './api';
+import { fetchServices } from '../api';
 
 interface Step3Props {
   reservation: Reservation;

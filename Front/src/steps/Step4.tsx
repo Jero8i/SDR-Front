@@ -1,7 +1,7 @@
 import React from 'react';
 import { Box, Button, FormControl, Grid, InputLabel, MenuItem, Select } from '@material-ui/core';
 import { Stack } from '@mui/material';
-import { Item } from './types';
+import { Item } from '../types';
 
 interface Step4Props {
   time: string;

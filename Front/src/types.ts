@@ -1,6 +1,18 @@
 import Paper from '@mui/material/Paper';
 import { styled } from '@mui/material/styles';
 
+export interface RenderStepContentProps {
+  activeStep: number;
+  reservation: Reservation;
+  handleNext: () => void;
+  handlePrev: () => void;
+  handleChangeStep1: (numberOfPeople: number) => void;
+  handleChangeStep2: (date: string) => void;
+  handleChangeStep3: (serviceSelected: string) => void;
+  handleChangeStep4: (time: string) => void;
+  handleSubmit: () => void;
+}
+
 export interface Reservation {
     numberOfPeople: number;
     date: string;
