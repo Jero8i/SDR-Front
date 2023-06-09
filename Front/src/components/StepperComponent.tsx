@@ -1,8 +1,12 @@
 import { Stepper, Step, StepLabel, Grid } from '@material-ui/core';
+import '../styles/Card.css';
 
 const StepperComponent = ({ activeStep }: { activeStep: number }) => {
     return(
-        <Stepper activeStep={activeStep}>
+        <Stepper 
+        style={{ background: 'none' }}
+        activeStep={activeStep}
+        >
             <Step>
             <StepLabel>Cantidad de Personas</StepLabel>
             </Step>
