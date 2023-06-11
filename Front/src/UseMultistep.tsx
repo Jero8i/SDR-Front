@@ -1,14 +1,15 @@
 import { useState } from "react";
-import { Reservation } from './types';
+import { Reservation, Service } from './types';
 
 export function useMultistep() {
     
     const [activeStep, setActiveStep] = useState(0);
+    const [selectedService, setSelectedService] = useState<Service | null>(null);
     const [reservation, setReservation] = useState<Reservation>({
         numberOfPeople: 0,
         date: '',
         time: '',
-        serviceSelected: ''
+        selectedServiceId: ''
     });
 
     const handleNext = () => {
@@ -27,8 +28,8 @@ export function useMultistep() {
         setReservation({ ...reservation, date });
     };
 
-    const handleChangeStep3 = (serviceSelected: string) => {
-        setReservation({ ...reservation, serviceSelected });
+    const handleChangeStep3 = (selectedServiceId: string) => {
+        setReservation({ ...reservation, selectedServiceId });
     };
 
     const handleChangeStep4 = (time: string) => {
@@ -39,7 +40,7 @@ export function useMultistep() {
         console.log('Reserva enviada:', reservation);
     };
 
-    return{
+    return {
         activeStep, 
         reservation,
         handleNext,
@@ -48,7 +49,9 @@ export function useMultistep() {
         handleChangeStep2,
         handleChangeStep3,
         handleChangeStep4,
-        handleSubmit
+        handleSubmit,
+        setSelectedService,
+        selectedService
     }
 
 }

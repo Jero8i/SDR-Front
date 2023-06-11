@@ -1,20 +1,48 @@
 import React from 'react';
 import { Box, Button, FormControl, Grid, InputLabel, MenuItem, Select } from '@material-ui/core';
 import { Stack } from '@mui/material';
-import { Item } from '../types';
+import { DayOfWeek, Item, Reservation, Service } from '../types';
+import { useMultistep } from '../UseMultistep';
+
+function getDayOfWeek(date: Date): DayOfWeek {
+  const day = date.getDay();
+
+  switch (day) {
+    case 0:
+      return DayOfWeek.lunes;
+    case 1:
+      return DayOfWeek.martes;
+    case 2:
+      return DayOfWeek.miércoles;
+    case 3:
+      return DayOfWeek.jueves;
+    case 4:
+      return DayOfWeek.viernes;
+    case 5:
+      return DayOfWeek.sábado;
+    case 6:
+      return DayOfWeek.domingo;
+    default:
+      throw new Error('Invalid day');
+  }
+}
 
 interface Step4Props {
   time: string;
+  reservation: Reservation;
   onPrev: () => void;
   onNext: () => void;
   onChange: (value: string) => void;
+  selectedService: Service | null;
 }
 
-const Step4: React.FC<Step4Props> = ({ time, onPrev, onNext, onChange }) => {
+const Step4: React.FC<Step4Props> = ({ time, reservation, onPrev, onNext, onChange, selectedService }) => {
   const handleSelectChange = (event: React.ChangeEvent<{ value: unknown }>) => {
     onChange(event.target.value as string);
   };
-
+  const date = new Date(reservation.date);
+  const dayOfWeek = getDayOfWeek(date);
+  const scheduleTimes = selectedService?.schedule.schedule[dayOfWeek];
   return (
     <Grid
     container
@@ -34,9 +62,12 @@ const Step4: React.FC<Step4Props> = ({ time, onPrev, onNext, onChange }) => {
               onChange={handleSelectChange}
             >
               <MenuItem value="">Seleccionar horario</MenuItem>
-              <MenuItem value="13">13:00</MenuItem>
-              <MenuItem value="14">14:00</MenuItem>
-              <MenuItem value="15">15:00</MenuItem>
+              {scheduleTimes &&
+                scheduleTimes.map((scheduleTime, index) => (
+                  <MenuItem key={index} value={`${scheduleTime.hour}:${scheduleTime.minute}`}>
+                    {`${scheduleTime.hour}:${scheduleTime.minute}`}
+                  </MenuItem>
+                ))}
             </Select>
           </FormControl>
         </Item>

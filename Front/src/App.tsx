@@ -7,7 +7,7 @@ import './styles/App.css';
 import './styles/Card.css';
 
 function App() {
-  const { activeStep, reservation, handleNext, handlePrev, handleChangeStep1, handleChangeStep2, handleChangeStep3, handleChangeStep4, handleSubmit } = useMultistep();
+  const { activeStep, reservation, handleNext, handlePrev, handleChangeStep1, handleChangeStep2, handleChangeStep3, handleChangeStep4, handleSubmit, setSelectedService, selectedService } = useMultistep();
 
   return (
     <div className="container">
@@ -22,7 +22,7 @@ function App() {
         boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)',
       }}>
         <StepperComponent activeStep={activeStep} />
-        {RenderStepContent({activeStep, reservation, handleNext, handlePrev, handleChangeStep1, handleChangeStep2, handleChangeStep3, handleChangeStep4, handleSubmit})}
+        {RenderStepContent({activeStep, reservation, handleNext, handlePrev, handleChangeStep1, handleChangeStep2, handleChangeStep3, handleChangeStep4, handleSubmit, setSelectedService, selectedService })}
        </Box>
     </div>
   );

@@ -6,7 +6,7 @@ import Step4 from '../steps/Step4';
 import Step5 from '../steps/Step5';
 import { RenderStepContentProps } from '../types';
 
-export const RenderStepContent = ({activeStep, reservation, handleNext, handlePrev, handleChangeStep1, handleChangeStep2, handleChangeStep3, handleChangeStep4, handleSubmit} : RenderStepContentProps) => {
+export const RenderStepContent = ({activeStep, reservation, handleNext, handlePrev, handleChangeStep1, handleChangeStep2, handleChangeStep3, handleChangeStep4, handleSubmit, setSelectedService, selectedService} : RenderStepContentProps) => {
     switch (activeStep) {
         case 0:
             return (
@@ -32,15 +32,18 @@ export const RenderStepContent = ({activeStep, reservation, handleNext, handlePr
                     onPrev={handlePrev}
                     onNext={handleNext}
                     onChange={handleChangeStep3}
+                    setSelectedService={selectedService => setSelectedService(selectedService)}
                 />
             );
         case 3:
             return (
                 <Step4
                     time={reservation.time}
+                    reservation={reservation}
                     onPrev={handlePrev}
                     onNext={handleNext}
                     onChange={handleChangeStep4}
+                    selectedService={selectedService}
                 />
             );
         case 4:

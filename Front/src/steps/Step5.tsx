@@ -33,7 +33,7 @@ interface Step5Props {
           <Item><p>Cantidad de personas: {reservation.numberOfPeople}</p></Item>
           <Item><p>Fecha: {reservation.date}</p></Item>
           <Item><p>Horario: {reservation.time}</p></Item>
-          <Item><p>Servicio: {reservation.serviceSelected}</p></Item>
+          <Item><p>Servicio: {reservation.selectedServiceId}</p></Item>
           <Item>
             <Grid
               container

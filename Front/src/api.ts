@@ -1,8 +1,8 @@
 import { Reservation, Service } from "./types";
 
-export async function fetchServices(): Promise<Service[]> {
+export async function fetchServices(date: string): Promise<Service[]> {
   try {
-    const response = await fetch('http://localhost:5225/Services');
+    const response = await fetch(`http://localhost:5225/Services?Date=${encodeURIComponent(date)}`);
     const data = await response.json();
     return data;
   } catch (error) {

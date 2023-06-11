@@ -8,21 +8,46 @@ export interface RenderStepContentProps {
   handlePrev: () => void;
   handleChangeStep1: (numberOfPeople: number) => void;
   handleChangeStep2: (date: string) => void;
-  handleChangeStep3: (serviceSelected: string) => void;
+  handleChangeStep3: (selectedServiceId: string) => void;
   handleChangeStep4: (time: string) => void;
   handleSubmit: () => void;
+  setSelectedService: (service: Service | null) => void;
+  selectedService: Service | null;
 }
 
 export interface Reservation {
     numberOfPeople: number;
     date: string;
     time: string;
-    serviceSelected: string;
+    selectedServiceId: string;
   }
 
   export interface Service {
-    id: number;
     name: string;
+    startDate: Date;
+    endDate: Date;
+    isActive: boolean;
+    maxPeople: number;
+    schedule: Schedule;
+  }
+
+  export interface Schedule {
+    schedule: { [key in DayOfWeek]?: ScheduleTime[] };
+  }
+  
+  interface ScheduleTime {
+    hour: number;
+    minute: number;
+  }
+
+  export enum DayOfWeek {
+    lunes = "lunes",
+    martes = "martes",
+    miércoles = "miércoles",
+    jueves = "jueves",
+    viernes = "viernes",
+    sábado = "sábado",
+    domingo = "domingo"
   }
 
   export const Item = styled(Paper)(({ theme }) => ({
