@@ -1,5 +1,6 @@
-import { Stepper, Step, StepLabel, Grid } from '@material-ui/core';
+import { Stepper, Step, StepLabel, ThemeProvider } from '@material-ui/core';
 import '../styles/Card.css';
+import '../styles/Stepper.css';
 
 const StepperComponent = ({ activeStep }: { activeStep: number }) => {
     return(
@@ -8,19 +9,19 @@ const StepperComponent = ({ activeStep }: { activeStep: number }) => {
         activeStep={activeStep}
         >
             <Step>
-            <StepLabel>Cantidad de Personas</StepLabel>
+                <StepLabel className="custom-label">Cantidad de Personas</StepLabel>
             </Step>
             <Step>
-            <StepLabel>Fecha</StepLabel>
+                <StepLabel className="custom-label">Fecha</StepLabel>
             </Step>
             <Step>
-            <StepLabel>Servicio</StepLabel>
+                <StepLabel className="custom-label">Servicio</StepLabel>
             </Step>
             <Step>
-            <StepLabel>Horario</StepLabel>
+                <StepLabel className="custom-label">Horario</StepLabel>
             </Step>
             <Step>
-            <StepLabel>Resumen</StepLabel>
+                <StepLabel className="custom-label">Resumen</StepLabel>
             </Step>
         </Stepper>
     );

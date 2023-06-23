@@ -1,0 +1,35 @@
+.custom-label .MuiStepLabel-label {
+    color: rgba(255, 255, 255, 0.87); 
+    font-weight: 500;
+}
+
+.custom-label .MuiStepLabel-label.MuiStepLabel-active {
+    color: rgba(168, 161, 74, 0.87); 
+    font-weight: 550;
+    font-size:medium;
+}
+
+.custom-label .MuiStepLabel-label.MuiStepLabel-completed {
+    color: rgba(137, 51, 2, 0.87); 
+    font-weight: 500;
+}
+
+.MuiSvgIcon-root.MuiStepIcon-root{
+    color: rgba(255, 255, 255, 0.87);
+}
+
+.MuiSvgIcon-root.MuiStepIcon-root .MuiStepIcon-text{
+    fill: rgba(0, 0, 0, 0.87);
+}
+
+.MuiSvgIcon-root.MuiStepIcon-root.MuiStepIcon-active{
+    color: rgba(168, 161, 74, 0.87); 
+}
+
+.MuiSvgIcon-root.MuiStepIcon-root.MuiStepIcon-active .MuiStepIcon-text{
+    fill: rgba(255, 255, 255, 0.87);
+}
+
+.MuiSvgIcon-root.MuiStepIcon-root.MuiStepIcon-completed{
+    color: rgba(137, 51, 2, 0.87); 
+}

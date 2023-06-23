@@ -3,7 +3,7 @@ import { Reservation, Service } from './types';
 
 export function useMultistep() {
     
-    const [activeStep, setActiveStep] = useState(0);
+    const [activeStep, setActiveStep] = useState(-1);
     const [selectedService, setSelectedService] = useState<Service | null>(null);
     const [reservation, setReservation] = useState<Reservation>({
         numberOfPeople: 0,

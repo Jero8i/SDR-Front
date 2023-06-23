@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box, Button, FormControl, Grid, InputLabel, MenuItem, Select } from '@material-ui/core';
 import { Stack } from '@mui/material';
-import { DayOfWeek, Item, Reservation, Service } from '../types';
-import { useMultistep } from '../UseMultistep';
+import { DayOfWeek, Item, Reservation, Service } from '../../types';
+import { useMultistep } from '../../UseMultistep';
 
 function getDayOfWeek(date: Date): DayOfWeek {
   const day = date.getDay();

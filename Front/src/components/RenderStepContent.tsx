@@ -1,13 +1,21 @@
 import React from 'react';
-import Step1 from '../steps/Step1';
-import Step2 from '../steps/Step2';
-import Step3 from '../steps/Step3';
-import Step4 from '../steps/Step4';
-import Step5 from '../steps/Step5';
+import WelcomeStep from './steps/WelcomeStep';
+import Step1 from './steps/Step1';
+import Step2 from './steps/Step2';
+import Step3 from './steps/Step3';
+import Step4 from './steps/Step4';
+import Step5 from './steps/Step5';
 import { RenderStepContentProps } from '../types';
 
 export const RenderStepContent = ({activeStep, reservation, handleNext, handlePrev, handleChangeStep1, handleChangeStep2, handleChangeStep3, handleChangeStep4, handleSubmit, setSelectedService, selectedService} : RenderStepContentProps) => {
     switch (activeStep) {
+        case -1:
+            return (
+                <WelcomeStep
+                    onNext={handleNext}
+                    onChange={handleChangeStep1}
+                />
+            );
         case 0:
             return (
                 <Step1

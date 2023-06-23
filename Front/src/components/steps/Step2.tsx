@@ -2,7 +2,7 @@ import React from 'react';
 import Stack from '@mui/material/Stack';
 import Box from '@mui/material/Box';
 import { Button, Grid, TextField } from '@mui/material';
-import { Item } from '../types';
+import { Item } from '../../types';
 
 interface Step2Props {
   date: string;
