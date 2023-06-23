@@ -1,4 +1,4 @@
-import { Stepper, Step, StepLabel, ThemeProvider } from '@material-ui/core';
+import { Stepper, Step, StepLabel} from '@material-ui/core';
 import '../styles/Card.css';
 import '../styles/Stepper.css';
 

@@ -11,7 +11,11 @@ interface Step3Props {
   onChange: (value: string) => void;
   setSelectedService: (service: Service | null) => void;
 }
-
+try {
+  // Código donde ocurre el error
+} catch (error) {
+  console.log(error);
+}
 const Step3: React.FC<Step3Props> = ({ reservation, onPrev, onNext, onChange, setSelectedService }) => {
   const [services, setServices] = useState<Service[]>([]);
 
@@ -83,4 +87,3 @@ const Step3: React.FC<Step3Props> = ({ reservation, onPrev, onNext, onChange, se
 }
 
 export default Step3;
-
