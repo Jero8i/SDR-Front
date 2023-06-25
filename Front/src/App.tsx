@@ -1,126 +1,39 @@
-import React, { useState } from 'react';
-import Step1 from './Step1';
-import Step2 from './Step2';
-import Step3 from './Step3';
-import Step4 from './Step4';
-import Step5 from './Step5';
-import { Stepper, Step, StepLabel, Grid } from '@material-ui/core';
-import { Reservation } from './types';
+import React from 'react';
+import { useMultistep } from './UseMultistep';
+import { RenderStepContent } from './components/RenderStepContent';
+import StepperComponent from './components/StepperComponent';
+import { Box, Grid } from '@material-ui/core';
+import './styles/App.css';
+import './styles/Card.css';
 
 function App() {
-  const [activeStep, setActiveStep] = useState(0);
-  const [reservation, setReservation] = useState<Reservation>({
-    numberOfPeople: 0,
-    date: '',
-    time: '',
-    serviceSelected: ''
-  });
-
-  const handleNext = () => {
-    setActiveStep(activeStep + 1);
-  };
-
-  const handlePrev = () => {
-    setActiveStep(activeStep - 1);
-  };
-
-  const handleChangeStep1 = (numberOfPeople: number) => {
-    setReservation({ ...reservation, numberOfPeople });
-  };
-
-  const handleChangeStep2 = (date: string) => {
-    setReservation({ ...reservation, date });
-  };
-
-  const handleChangeStep3 = (serviceSelected: string) => {
-    setReservation({ ...reservation, serviceSelected });
-  };
-
-  const handleChangeStep4 = (time: string) => {
-    setReservation({ ...reservation, time });
-  };
-
-  const handleSubmit = () => {
-    console.log('Reserva enviada:', reservation);
-  };
-
-  const renderStepContent = (step: number) => {
-    switch (step) {
-      case 0:
-        return (
-          <Step1
-            numberOfPeople={reservation.numberOfPeople}
-            onNext={handleNext}
-            onChange={handleChangeStep1}
-          />
-        );
-      case 1:
-        return (
-          <Step2
-            date={reservation.date}
-            onPrev={handlePrev}
-            onNext={handleNext}
-            onChange={handleChangeStep2}
-          />
-        );
-      case 2:
-        return (
-          <Step3
-          reservation={reservation}
-            onPrev={handlePrev}
-            onNext={handleNext}
-            onChange={handleChangeStep3}
-          />
-        );
-      case 3:
-        return (
-          <Step4
-            time={reservation.time}
-            onPrev={handlePrev}
-            onNext={handleNext}
-            onChange={handleChangeStep4}
-          />
-        );
-      case 4:
-          return (
-            <Step5
-              reservation={reservation}
-              onPrev={handlePrev}
-              onSubmit={handleSubmit}
-            />
-          );
-      default:
-        return null;
-    }
-  };
+  const { activeStep, reservation, handleNext, handlePrev, handleChangeStep1, handleChangeStep2, handleChangeStep3, handleChangeStep4, handleSubmit, setSelectedService, selectedService } = useMultistep();
 
   return (
-    <Grid
-      container
+    <div className="background">
+      <Box
       justifyContent="center"
       alignItems="center"
-      style={{ height: '10vh' }}
-    >
-      <Stepper activeStep={activeStep}>
-        <Step>
-          <StepLabel>Cantidad de Personas</StepLabel>
-        </Step>
-        <Step>
-          <StepLabel>Fecha</StepLabel>
-        </Step>
-        <Step>
-          <StepLabel>Servicio</StepLabel>
-        </Step>
-        <Step>
-          <StepLabel>Horario</StepLabel>
-        </Step>
-        <Step>
-          <StepLabel>Resumen</StepLabel>
-        </Step>
-      </Stepper>
-      {renderStepContent(activeStep)}
-    </Grid>
+      style={{
+      backgroundColor: 'rgba(254, 250, 224)',
+      width: '50%',
+      height: '65%',
+      borderRadius: '10px',
+      boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)',
+      }}>
+
+      <Grid item>
+        {activeStep !== -1 && <StepperComponent activeStep={activeStep} />}
+      </Grid>
+
+      <Grid item>
+        {RenderStepContent({activeStep, reservation, handleNext, handlePrev, handleChangeStep1, handleChangeStep2, handleChangeStep3, handleChangeStep4, handleSubmit, setSelectedService, selectedService })}
+      </Grid>
+
+      </Box>
+    </div>
   );
 }
 
 export default App;
+

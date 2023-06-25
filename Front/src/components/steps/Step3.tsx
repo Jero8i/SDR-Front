@@ -1,23 +1,28 @@
 import React, { useState, useEffect } from 'react';
 import { Box, Button, FormControl, Grid, InputLabel, MenuItem, Select } from '@material-ui/core';
-import { Item, Reservation, Service } from './types';
+import { Item, Reservation, Service } from '../../types';
 import { Stack } from '@mui/material';
-import { fetchServices } from './api';
+import { fetchServices } from '../../api';
 
 interface Step3Props {
   reservation: Reservation;
   onPrev: () => void;
   onNext: () => void;
   onChange: (value: string) => void;
+  setSelectedService: (service: Service | null) => void;
 }
-
-const Step3: React.FC<Step3Props> = ({ reservation, onPrev, onNext, onChange }) => {
+try {
+  // Código donde ocurre el error
+} catch (error) {
+  console.log(error);
+}
+const Step3: React.FC<Step3Props> = ({ reservation, onPrev, onNext, onChange, setSelectedService }) => {
   const [services, setServices] = useState<Service[]>([]);
 
   useEffect(() => {
     const fetchServicesData = async () => {
       try {
-        const services = await fetchServices();
+        const services = await fetchServices(reservation.date);
         setServices(services);
       } catch (error) {
         // Manejar el error aquí según tus necesidades
@@ -28,9 +33,10 @@ const Step3: React.FC<Step3Props> = ({ reservation, onPrev, onNext, onChange }) 
 
   const handleSelectChange = (event: React.ChangeEvent<{ value: unknown }>) => {
     const selectedServiceId = event.target.value as string;
-    const selectedService = services.find(service => service.name === selectedServiceId)?.name;
+    const selectedService = services.find(service => service.name === selectedServiceId);
     if (selectedService) {
-      onChange(selectedService);
+      setSelectedService(selectedService);
+      onChange(selectedService.name);
     }
   };
 
@@ -49,7 +55,7 @@ const Step3: React.FC<Step3Props> = ({ reservation, onPrev, onNext, onChange }) 
               <InputLabel id="service-label">Servicio</InputLabel>
               <Select
                 labelId="service-label"
-                value={reservation.serviceSelected || ''}
+                value={reservation.selectedServiceId}
                 onChange={handleSelectChange}
               >
                 <MenuItem value="">Seleccionar servicio</MenuItem>
@@ -81,4 +87,3 @@ const Step3: React.FC<Step3Props> = ({ reservation, onPrev, onNext, onChange }) 
 }
 
 export default Step3;
-

@@ -1,8 +1,8 @@
 import React from 'react';
 import { Box, Button, Grid } from '@material-ui/core';
-import { Item, Reservation } from './types';
+import { Item, Reservation } from '../../types';
 import { Stack } from '@mui/material';
-import { createReservation } from './api';
+import { createReservation } from '../../api';
 
 interface Step5Props {
     reservation: Reservation;
@@ -33,7 +33,7 @@ interface Step5Props {
           <Item><p>Cantidad de personas: {reservation.numberOfPeople}</p></Item>
           <Item><p>Fecha: {reservation.date}</p></Item>
           <Item><p>Horario: {reservation.time}</p></Item>
-          <Item><p>Servicio: {reservation.serviceSelected}</p></Item>
+          <Item><p>Servicio: {reservation.selectedServiceId}</p></Item>
           <Item>
             <Grid
               container
