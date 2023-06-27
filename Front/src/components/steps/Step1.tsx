@@ -22,18 +22,18 @@ const Step1: React.FC<Step1Props> = ({ numberOfPeople, onNext, onChange }) => {
       alignItems="center"
       style={{ height: '10vh' }}
     >
-    <Box sx={{ width: 300 }}>
-      <Stack spacing={{ xs: 1, sm: 1 }} direction="row" useFlexGap flexWrap="wrap">
-        <Item><h2>Cantidad de personas</h2></Item>
-        <Item><TextField
+      <Grid item sx={{ width: 300 }}>
+        <Grid item container spacing={{ xs: 1, sm: 1 }} direction="row">
+          <Grid item><h2>Cantidad de personas</h2></Grid>
+          <Grid item><TextField
           type="number"
           label="Número de personas"
           value={numberOfPeople}
           onChange={handleInputChange}
-        /></Item>
-        <Item><Button variant="contained" color="primary" onClick={onNext}>Siguiente</Button></Item>
-      </Stack>
-    </Box>
+          /></Grid>
+          <Grid><Button variant="contained" color="primary" onClick={onNext}>Siguiente</Button></Grid>
+        </Grid>
+      </Grid>
     </Grid>
   );
 }

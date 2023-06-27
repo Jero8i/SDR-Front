@@ -1,26 +1,35 @@
 import React from 'react';
 import { useMultistep } from './UseMultistep';
 import { RenderStepContent } from './components/RenderStepContent';
+import { Grid } from '@mui/material';
+
 import StepperComponent from './components/StepperComponent';
-import { Box, Grid } from '@material-ui/core';
 import './styles/App.css';
 import './styles/Card.css';
 
 function App() {
-  const { activeStep, reservation, handleNext, handlePrev, handleChangeStep1, handleChangeStep2, handleChangeStep3, handleChangeStep4, handleSubmit, setSelectedService, selectedService } = useMultistep();
+  const { activeStep, reservation, handleNext, handlePrev, handleChangeStep1, handleChangeStep2, 
+        handleChangeStep3, handleChangeStep4, handleSubmit, setSelectedService, selectedService } = useMultistep();
 
   return (
     <div className="background">
-      <Box
-      justifyContent="center"
+      <Grid
+      container
+      direction="column"
+      justifyContent={activeStep !== -1 ? 'flex-start' : 'center'}
       alignItems="center"
-      style={{
-      backgroundColor: 'rgba(254, 250, 224)',
-      width: '50%',
-      height: '65%',
-      borderRadius: '10px',
-      boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)',
-      }}>
+      sx={{
+        backgroundColor: 'rgba(254, 250, 224)',
+        borderRadius: '10px',
+        boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)',
+        height: {
+          xs: '50%', sm: '50%', md: '60%', lg: '65%', 
+        },
+        width: {
+          xs: '80%', sm: '70%', md: '60%', lg: '50%', 
+        },
+      }}
+    >
 
       <Grid item>
         {activeStep !== -1 && <StepperComponent activeStep={activeStep} />}
@@ -30,7 +39,7 @@ function App() {
         {RenderStepContent({activeStep, reservation, handleNext, handlePrev, handleChangeStep1, handleChangeStep2, handleChangeStep3, handleChangeStep4, handleSubmit, setSelectedService, selectedService })}
       </Grid>
 
-      </Box>
+      </Grid>
     </div>
   );
 }

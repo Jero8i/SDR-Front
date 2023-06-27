@@ -5,7 +5,21 @@ import Step2 from './steps/Step2';
 import Step3 from './steps/Step3';
 import Step4 from './steps/Step4';
 import Step5 from './steps/Step5';
-import { RenderStepContentProps } from '../types';
+import { Reservation, Service } from '../types';
+
+interface RenderStepContentProps {
+    activeStep: number;
+    reservation: Reservation;
+    handleNext: () => void;
+    handlePrev: () => void;
+    handleChangeStep1: (numberOfPeople: number) => void;
+    handleChangeStep2: (date: string) => void;
+    handleChangeStep3: (selectedServiceId: string) => void;
+    handleChangeStep4: (time: string) => void;
+    handleSubmit: () => void;
+    setSelectedService: (service: Service | null) => void;
+    selectedService: Service | null;
+}
 
 export const RenderStepContent = ({activeStep, reservation, handleNext, handlePrev, handleChangeStep1, handleChangeStep2, handleChangeStep3, handleChangeStep4, handleSubmit, setSelectedService, selectedService} : RenderStepContentProps) => {
     switch (activeStep) {

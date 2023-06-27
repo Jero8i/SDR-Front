@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Button, FormControl, Grid, InputLabel, MenuItem, Select } from '@material-ui/core';
+import { Button, FormControl, Grid, InputLabel, MenuItem, Select, SelectChangeEvent } from '@mui/material'; 
+import { Box, Stack } from '@mui/system';
 import { Item, Reservation, Service } from '../../types';
-import { Stack } from '@mui/material';
 import { fetchServices } from '../../api';
 
 interface Step3Props {
@@ -11,11 +11,7 @@ interface Step3Props {
   onChange: (value: string) => void;
   setSelectedService: (service: Service | null) => void;
 }
-try {
-  // Código donde ocurre el error
-} catch (error) {
-  console.log(error);
-}
+
 const Step3: React.FC<Step3Props> = ({ reservation, onPrev, onNext, onChange, setSelectedService }) => {
   const [services, setServices] = useState<Service[]>([]);
 
@@ -31,7 +27,7 @@ const Step3: React.FC<Step3Props> = ({ reservation, onPrev, onNext, onChange, se
     fetchServicesData();
   }, []);
 
-  const handleSelectChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+  const handleSelectChange = (event: SelectChangeEvent<string>) => {
     const selectedServiceId = event.target.value as string;
     const selectedService = services.find(service => service.name === selectedServiceId);
     if (selectedService) {

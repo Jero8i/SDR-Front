@@ -1,6 +1,6 @@
 import React from 'react';
-import { Box, Button, FormControl, Grid, InputLabel, MenuItem, Select } from '@material-ui/core';
-import { Stack } from '@mui/material';
+import { Button, FormControl, Grid, InputLabel, MenuItem, Select } from '@material-ui/core';
+import { Box, Stack } from '@mui/material';
 import { DayOfWeek, Item, Reservation, Service } from '../../types';
 import { useMultistep } from '../../UseMultistep';
 

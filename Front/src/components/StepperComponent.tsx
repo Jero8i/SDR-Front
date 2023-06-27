@@ -27,4 +27,4 @@ const StepperComponent = ({ activeStep }: { activeStep: number }) => {
     );
 };
 
-export default StepperComponent
+export default StepperComponent;
