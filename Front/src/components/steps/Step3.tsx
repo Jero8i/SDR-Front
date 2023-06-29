@@ -8,21 +8,16 @@ interface Step3Props {
   reservation: Reservation;
   onPrev: () => void;
   onNext: () => void;
-  onChange: (value: string) => void;
-  setSelectedService: (service: Service | null) => void;
+  onChange: (value: Service) => void;
 }
-try {
-  // Código donde ocurre el error
-} catch (error) {
-  console.log(error);
-}
-const Step3: React.FC<Step3Props> = ({ reservation, onPrev, onNext, onChange, setSelectedService }) => {
+
+const Step3: React.FC<Step3Props> = ({ reservation, onPrev, onNext, onChange }) => {
   const [services, setServices] = useState<Service[]>([]);
 
   useEffect(() => {
     const fetchServicesData = async () => {
       try {
-        const services = await fetchServices(reservation.date);
+        const services = await fetchServices(reservation.time.toISOString().split("T")[0]);
         setServices(services);
       } catch (error) {
         // Manejar el error aquí según tus necesidades
@@ -35,8 +30,7 @@ const Step3: React.FC<Step3Props> = ({ reservation, onPrev, onNext, onChange, se
     const selectedServiceId = event.target.value as string;
     const selectedService = services.find(service => service.name === selectedServiceId);
     if (selectedService) {
-      setSelectedService(selectedService);
-      onChange(selectedService.name);
+      onChange(selectedService);
     }
   };
 
@@ -55,7 +49,7 @@ const Step3: React.FC<Step3Props> = ({ reservation, onPrev, onNext, onChange, se
               <InputLabel id="service-label">Servicio</InputLabel>
               <Select
                 labelId="service-label"
-                value={reservation.selectedServiceId}
+                value={reservation.service.name}
                 onChange={handleSelectChange}
               >
                 <MenuItem value="">Seleccionar servicio</MenuItem>

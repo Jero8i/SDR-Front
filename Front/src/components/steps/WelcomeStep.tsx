@@ -7,10 +7,9 @@ import '../../styles/App.css';
 
 interface WelcomeStepProps {
   onNext: () => void;
-  onChange: (value: number) => void;
 }
 
-const WelcomeStep: React.FC<WelcomeStepProps> = ({ onNext, onChange }) => {
+const WelcomeStep: React.FC<WelcomeStepProps> = ({ onNext }) => {
 
   return (
     <Grid

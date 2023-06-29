@@ -13,6 +13,8 @@ interface Step5Props {
   const Step5: React.FC<Step5Props> = ({ reservation, onPrev, onSubmit }) => {
     const handleSubmit = async () => {
       try {
+        console.log(reservation);
+        console.log(JSON.stringify(reservation));
         await createReservation(reservation);
         onSubmit();
       } catch (error) {
@@ -30,10 +32,10 @@ interface Step5Props {
       <Box sx={{ width: 300 }}>
         <Stack spacing={{ xs: 1, sm: 1 }} direction="row" useFlexGap flexWrap="wrap">
           <Item><h2>Resumen de reserva</h2></Item>
-          <Item><p>Cantidad de personas: {reservation.numberOfPeople}</p></Item>
-          <Item><p>Fecha: {reservation.date}</p></Item>
-          <Item><p>Horario: {reservation.time}</p></Item>
-          <Item><p>Servicio: {reservation.selectedServiceId}</p></Item>
+          <Item><p>Cantidad de personas: {reservation.numberDiners}</p></Item>
+          <Item><p>Fecha: {reservation.time.getDate()}</p></Item>
+          <Item><p>Horario: {reservation.time.getHours()}</p></Item>
+          <Item><p>Servicio: {reservation.service.name}</p></Item>
           <Item>
             <Grid
               container
