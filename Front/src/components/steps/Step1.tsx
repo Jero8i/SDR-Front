@@ -5,12 +5,12 @@ import { Button, Grid, TextField } from '@mui/material';
 import { Item } from '../../types';
 
 interface Step1Props {
-  numberOfPeople: number;
+  numberDiners: number;
   onNext: () => void;
   onChange: (value: number) => void;
 }
 
-const Step1: React.FC<Step1Props> = ({ numberOfPeople, onNext, onChange }) => {
+const Step1: React.FC<Step1Props> = ({ numberDiners, onNext, onChange }) => {
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     onChange(parseInt(event.target.value));
   };
@@ -28,7 +28,7 @@ const Step1: React.FC<Step1Props> = ({ numberOfPeople, onNext, onChange }) => {
         <Item><TextField
           type="number"
           label="Número de personas"
-          value={numberOfPeople}
+          value={numberDiners}
           onChange={handleInputChange}
         /></Item>
         <Item><Button variant="contained" color="primary" onClick={onNext}>Siguiente</Button></Item>
