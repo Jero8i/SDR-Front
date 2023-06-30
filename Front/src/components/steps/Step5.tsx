@@ -34,7 +34,7 @@ interface Step5Props {
           <Item><h2>Resumen de reserva</h2></Item>
           <Item><p>Cantidad de personas: {reservation.numberDiners}</p></Item>
           <Item><p>Fecha: {reservation.time.toLocaleDateString()}</p></Item>
-          <Item><p>Horario: {reservation.time.getHours()}</p></Item>
+          <Item><p>Horario: {reservation.time.toLocaleTimeString()}</p></Item>
           <Item><p>Servicio: {reservation.service.name}</p></Item>
           <Item>
             <Grid
