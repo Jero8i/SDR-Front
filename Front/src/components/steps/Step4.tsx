@@ -9,8 +9,7 @@ import {
   Select,
 } from "@material-ui/core";
 import { Stack } from "@mui/material";
-import { DayOfWeek, Item, Reservation, Service } from "../../types";
-import { useMultistep } from "../../UseMultistep";
+import { Item, Reservation } from "../../types";
 
 function getDayOfWeek(date: Date): string {
   const day = date.getDay();
