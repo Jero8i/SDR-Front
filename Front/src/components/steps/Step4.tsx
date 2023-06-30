@@ -12,24 +12,24 @@ import { Stack } from "@mui/material";
 import { DayOfWeek, Item, Reservation, Service } from "../../types";
 import { useMultistep } from "../../UseMultistep";
 
-function getDayOfWeek(date: Date): DayOfWeek {
+function getDayOfWeek(date: Date): string {
   const day = date.getDay();
 
   switch (day) {
     case 0:
-      return DayOfWeek.lunes;
+      return "lunes";
     case 1:
-      return DayOfWeek.martes;
+      return "martes";
     case 2:
-      return DayOfWeek.miércoles;
+      return "miércoles";
     case 3:
-      return DayOfWeek.jueves;
+      return "jueves";
     case 4:
-      return DayOfWeek.viernes;
+      return "viernes";
     case 5:
-      return DayOfWeek.sábado;
+      return "sábado";
     case 6:
-      return DayOfWeek.domingo;
+      return "domingo";
     default:
       throw new Error("Invalid day");
   }

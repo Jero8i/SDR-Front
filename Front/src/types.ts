@@ -14,13 +14,13 @@ export interface RenderStepContentProps {
 }
 
 export enum DayOfWeek {
-  lunes = "lunes",
-  martes = "martes",
-  miércoles = "miércoles",
-  jueves = "jueves",
-  viernes = "viernes",
-  sábado = "sábado",
-  domingo = "domingo",
+    lunes,
+    martes,
+    miércoles,
+    jueves,
+    viernes,
+    sábado,
+    domingo
 }
 
 export enum Classification {
@@ -68,7 +68,7 @@ export interface Service {
 }
 
 export interface Schedule {
-  schedule: { [key in DayOfWeek]?: ScheduleTime[] };
+  schedule: { [key in string]?: ScheduleTime[] };
 }
 
 interface ScheduleTime {
