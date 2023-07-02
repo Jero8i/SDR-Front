@@ -1,8 +1,7 @@
 import React from 'react';
 import { Button, Grid, Typography } from '@mui/material';
 import RestaurantIcon from '@mui/icons-material/Restaurant';
-
-import '../../styles/App.css';
+;
 
 interface WelcomeStepProps {
   onNext: () => void;
@@ -27,8 +26,8 @@ const WelcomeStep: React.FC<WelcomeStepProps> = ({ onNext, onChange }) => {
           sx={{
             fontSize: {
               xs: '1.8rem', sm: '2.6rem', md: '3.3rem', lg: '3.7rem',
-          },
-        }}
+            },
+          }}
         >
           HOLMES BREWERY
         </Typography>

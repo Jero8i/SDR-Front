@@ -1,0 +1,11 @@
+@import 'Palette.css';
+
+.MuiButtonBase-root.numberButton{
+    margin: 0% 1% 0% 1%;
+    border-radius: 50%;
+    color: var(--color-primary-light);
+}
+
+.MuiButtonBase-root.numberButton:hover{
+    background-color: var(--color-primary);
+}

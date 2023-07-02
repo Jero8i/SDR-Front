@@ -5,7 +5,6 @@ import { Grid } from '@mui/material';
 
 import StepperComponent from './components/StepperComponent';
 import './styles/App.css';
-import './styles/Card.css';
 
 function App() {
   const { activeStep, reservation, handleNext, handlePrev, handleChangeStep1, handleChangeStep2, 
@@ -23,11 +22,12 @@ function App() {
         borderRadius: '10px',
         boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)',
         height: {
-          xs: '50%', sm: '50%', md: '60%', lg: '65%', 
+          xs: '50%', sm: '55%', md: '60%', lg: '65%', 
         },
         width: {
-          xs: '80%', sm: '70%', md: '60%', lg: '50%', 
+          xs: '80%', sm: '70%', md: '57%', lg: '50%', 
         },
+        position: 'relative',
       }}
     >
 
@@ -42,6 +42,7 @@ function App() {
       </Grid>
     </div>
   );
+
 }
 
 export default App;
