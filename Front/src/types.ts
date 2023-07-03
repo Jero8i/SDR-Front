@@ -68,12 +68,7 @@ export interface Service {
 }
 
 export interface Schedule {
-  schedule: { [key in string]?: ScheduleTime[] };
-}
-
-interface ScheduleTime {
-  hour: number;
-  minute: number;
+  [key: string]: string[];
 }
 
 export const Item = styled(Paper)(({ theme }) => ({

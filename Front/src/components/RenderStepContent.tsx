@@ -50,7 +50,7 @@ export const RenderStepContent = ({
     case 3:
       return (
         <Step4
-          time={`${reservation.time.getHours()}:${reservation.time.getMinutes()}`}
+          time={`${reservation.time.toLocaleDateString()}`}
           reservation={reservation}
           onPrev={handlePrev}
           onNext={handleNext}

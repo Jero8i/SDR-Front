@@ -54,7 +54,9 @@ const Step4: React.FC<Step4Props> = ({
   };
   const date = reservation.time;
   const dayOfWeek = getDayOfWeek(date);
-  const scheduleTimes = reservation.service?.schedule.schedule[dayOfWeek];
+  const scheduleTimes = reservation.service?.schedule[dayOfWeek];
+  const defaultValue = scheduleTimes?.includes(reservation.time.toLocaleTimeString()) ? reservation.time.toLocaleTimeString() : "";
+
   return (
     <Grid
       container
@@ -77,18 +79,17 @@ const Step4: React.FC<Step4Props> = ({
               <InputLabel id="time-label">Horario</InputLabel>
               <Select
                 labelId="time-label"
-                // Check first value of time.
-                value={time}
+                value={defaultValue}
                 onChange={handleSelectChange}
               >
                 <MenuItem value="">Seleccionar horario</MenuItem>
                 {scheduleTimes &&
-                  scheduleTimes.map((scheduleTime, index) => (
+                  scheduleTimes.map((timeString, index) => (
                     <MenuItem
                       key={index}
-                      value={`${scheduleTime.hour}:${scheduleTime.minute}`}
+                      value={timeString}
                     >
-                      {`${scheduleTime.hour}:${scheduleTime.minute}`}
+                      {timeString}
                     </MenuItem>
                   ))}
               </Select>

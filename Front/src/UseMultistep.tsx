@@ -25,13 +25,7 @@ export function useMultistep() {
       endDate: new Date(),
       isActive: false,
       maxPeople: 0,
-      schedule: {
-        schedule: {
-          [DayOfWeek.viernes]: [],
-          [DayOfWeek.sábado]: [],
-          [DayOfWeek.domingo]: [],
-        },
-      },
+      schedule: {},
     },
     time: new Date(),
     state: 0,
