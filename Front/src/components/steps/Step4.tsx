@@ -11,26 +11,14 @@ import {
 import { Stack } from "@mui/material";
 import { Item, Reservation } from "../../types";
 
-function getDayOfWeek(date: Date): string {
+function getDayOfWeek(date: Date): number {
   const day = date.getDay();
 
   switch (day) {
-    case 0:
-      return "lunes";
-    case 1:
-      return "martes";
-    case 2:
-      return "miércoles";
-    case 3:
-      return "jueves";
-    case 4:
-      return "viernes";
-    case 5:
-      return "sábado";
     case 6:
-      return "domingo";
+      return 0;
     default:
-      throw new Error("Invalid day");
+      return day + 1;
   }
 }
 
