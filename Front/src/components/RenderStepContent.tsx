@@ -5,9 +5,21 @@ import Step2 from "./steps/Step2";
 import Step3 from "./steps/Step3";
 import Step4 from "./steps/Step4";
 import Step5 from "./steps/Step5";
-import { RenderStepContentProps } from "../types";
+import { Reservation, Service } from "../types";
 
-export const RenderStepContent = ({
+interface RenderStepContentProps {
+  activeStep: number;
+  reservation: Reservation;
+  handleNext: () => void;
+  handlePrev: () => void;
+  handleChangeStep1: (numberDiners: number) => void;
+  handleChangeStep2: (date: string) => void;
+  handleChangeStep3: (service: Service) => void;
+  handleChangeStep4: (scheduleTime: string) => void;
+  handleSubmit: () => void;
+}
+
+export const RenderStepContent: React.FC<RenderStepContentProps> = ({
   activeStep,
   reservation,
   handleNext,
@@ -17,7 +29,7 @@ export const RenderStepContent = ({
   handleChangeStep3,
   handleChangeStep4,
   handleSubmit,
-}: RenderStepContentProps) => {
+}) => {
   switch (activeStep) {
     case -1:
       return <WelcomeStep onNext={handleNext} />;

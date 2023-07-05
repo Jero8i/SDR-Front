@@ -1,14 +1,11 @@
 import { useState } from "react";
 import {
-  Classification,
-  DayOfWeek,
   Reservation,
   Service,
-  State,
 } from "./types";
 
 export function useMultistep() {
-  const [activeStep, setActiveStep] = useState(0);
+  const [activeStep, setActiveStep] = useState(-1);
   const [reservation, setReservation] = useState<Reservation>({
     id: null,
     customer: {
