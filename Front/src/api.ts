@@ -13,7 +13,7 @@ export async function fetchServices(date: string): Promise<Service[]> {
 
 export async function createReservation(reservation: Reservation): Promise<void> {
   try {
-    const response = await fetch('http://holmessoftware-001-site1.atempurl.com/new-reservation', {
+    const response = await fetch('http://holmessoftware-001-site1.atempurl.com/save-reservation', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

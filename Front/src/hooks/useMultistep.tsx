@@ -2,7 +2,7 @@ import { useState } from "react";
 import {
   Reservation,
   Service,
-} from "./types";
+} from "../types";
 
 export function useMultistep() {
   const [activeStep, setActiveStep] = useState(-1);

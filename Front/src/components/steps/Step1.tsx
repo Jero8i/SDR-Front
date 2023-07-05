@@ -1,8 +1,9 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import { Box, Button, Grid, InputAdornment, TextField, Typography, useMediaQuery, useTheme } from '@mui/material';
-import '../../styles/Step1.css'
-import BoyIcon from '@mui/icons-material/Boy';
+import PersonAddIcon from '@mui/icons-material/PersonAdd';
 
+import '../../styles/Step1.css';
+import { useWindowRezise } from "../../hooks/useWindowRezise";
 
 interface Step1Props {
   numberDiners: number;
@@ -43,13 +44,19 @@ const NumberButton: React.FC<NumberButtonProps> = ({value, selectedValue, handle
 
 const Step1: React.FC<Step1Props> = ({ numberDiners, onNext, onChange }) => {
 
-  const [selectedValue, setSelectedValue] = useState<number|string>('');
+  const [selectedValue, setSelectedValue] = useState<number|string>(numberDiners);
   const [showTextField, setShowTextField] = useState<boolean>(false);
   const [isNegative, setIsNegative] = useState<boolean>(false);
+  
+  const { isMedium, isMobile } = useWindowRezise();
 
-  React.useEffect(() => {
-    console.log(selectedValue);
-  }, [selectedValue]);
+  useEffect(() => {
+    if (isMobile) {
+      setShowTextField(true);
+    } else {
+      setShowTextField(false);
+    }
+  }, [isMobile]);
 
   const handleButtonClick = (value: number|string) => {
     setSelectedValue(value);
@@ -79,9 +86,6 @@ const Step1: React.FC<Step1Props> = ({ numberDiners, onNext, onChange }) => {
     }
   }
 
-  const theme = useTheme();
-  const isXs = useMediaQuery(theme.breakpoints.down('sm'));
-
   return (
     <Box
       display="flex"
@@ -97,6 +101,7 @@ const Step1: React.FC<Step1Props> = ({ numberDiners, onNext, onChange }) => {
       sx={{
         textAlign: 'center',
         marginTop: 
+        isMobile ? '15%' :
         showTextField ? { xs: '2%', sm: '6%', md: '10%', lg: '8%' } 
         : { xs: '3%', sm: '7%', md: '11%', lg: '19%' }
       }}>
@@ -109,6 +114,7 @@ const Step1: React.FC<Step1Props> = ({ numberDiners, onNext, onChange }) => {
         Elija una cantidad de personas</Typography>
       </Grid>
 
+      {!isMobile && 
       <Grid item
       sx={{
         textAlign: 'center', 
@@ -123,14 +129,17 @@ const Step1: React.FC<Step1Props> = ({ numberDiners, onNext, onChange }) => {
         <NumberButton value='2' selectedValue={selectedValue} handleButtonClick={handleButtonClick} />
         <NumberButton value='3' selectedValue={selectedValue} handleButtonClick={handleButtonClick} />
         <NumberButton value='4' selectedValue={selectedValue} handleButtonClick={handleButtonClick} />
-        {!isXs && (<NumberButton value="5" selectedValue={selectedValue} handleButtonClick={handleButtonClick}/>)}
+        {!isMedium && (<NumberButton value="5" selectedValue={selectedValue} handleButtonClick={handleButtonClick}/>)}
         <NumberButton value='+' selectedValue={selectedValue} handleButtonClick={handleButtonClick} />
       </Grid>
-
+      }
+      
       {showTextField || isNegative ? (
         <Grid item
           sx={{
-            marginTop:{
+            marginTop:
+              isMobile ? '15%' :
+            {
               xs: '3%', sm: '5%', md: '8%', lg: '10%',
             },
           }}
@@ -144,7 +153,7 @@ const Step1: React.FC<Step1Props> = ({ numberDiners, onNext, onChange }) => {
             InputProps={{
               startAdornment: (
                 <InputAdornment position="start">
-                  <BoyIcon />
+                  <PersonAddIcon />
                 </InputAdornment>
               ),
             }}

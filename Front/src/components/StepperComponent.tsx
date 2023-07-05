@@ -1,31 +1,16 @@
-import '../styles/Stepper.css';
 import { MobileStepper, Stepper, Step, StepLabel } from '@mui/material';
 import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 import EventRoundedIcon from '@mui/icons-material/EventRounded';
 import SportsBarIcon from '@mui/icons-material/SportsBar';
 import WatchLaterIcon from '@mui/icons-material/WatchLater';
 import FactCheckRoundedIcon from '@mui/icons-material/FactCheckRounded';
-import { useEffect, useState } from 'react';
+
+import '../styles/Stepper.css';
+import { useWindowRezise } from "../hooks/useWindowRezise";
 
 const StepperComponent = ({ activeStep }: { activeStep: number }) => {
 
-    const [isMedium, setIsMedium] = useState(false);
-    const [isMobile, setIsMobile] = useState(false);
-
-    useEffect(() => {
-        const handleResize = () => {
-            setIsMedium(window.matchMedia('(max-width: 768px)').matches);
-            setIsMobile(window.matchMedia('(max-width: 375px)').matches);
-        };
-
-        handleResize();
-
-        window.addEventListener('resize', handleResize);
-
-        return () => {
-            window.removeEventListener('resize', handleResize);
-        };
-    }, []);
+    const { isMedium, isMobile } = useWindowRezise();
 
     return(
         <>

@@ -12,26 +12,14 @@ import {
 } from "@mui/material";
 import { Item, Reservation } from "../../types";
 
-function getDayOfWeek(date: Date): string {
+function getDayOfWeek(date: Date): number {
   const day = date.getDay();
 
   switch (day) {
-    case 0:
-      return "lunes";
-    case 1:
-      return "martes";
-    case 2:
-      return "miércoles";
-    case 3:
-      return "jueves";
-    case 4:
-      return "viernes";
-    case 5:
-      return "sábado";
     case 6:
-      return "domingo";
+      return 0;
     default:
-      throw new Error("Invalid day");
+      return day + 1;
   }
 }
 
@@ -54,7 +42,7 @@ const Step4: React.FC<Step4Props> = ({
   const handleSelectChange = (event: SelectChangeEvent) => {
     onChange(event.target.value as string);
   };
-
+  
   const date = reservation.time;
   const dayOfWeek = getDayOfWeek(date);
   const scheduleTimes = reservation.service?.schedule[dayOfWeek];

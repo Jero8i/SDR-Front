@@ -1,5 +1,5 @@
 import React from "react";
-import { useMultistep } from "./UseMultistep";
+import { useMultistep } from "./hooks/useMultistep";
 import { RenderStepContent } from "./components/RenderStepContent";
 import { Grid } from '@mui/material';
 
@@ -31,7 +31,7 @@ function App() {
           borderRadius: '10px',
           boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)',
           height: {
-            xs: '50%', sm: '55%', md: '60%', lg: '65%', 
+            xs: '40%', sm: '55%', md: '60%', lg: '65%', 
           },
           width: {
             xs: '80%', sm: '70%', md: '57%', lg: '50%', 
