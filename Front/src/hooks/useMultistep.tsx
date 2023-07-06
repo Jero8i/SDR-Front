@@ -9,7 +9,7 @@ export function useMultistep() {
   const [reservation, setReservation] = useState<Reservation>({
     id: null,
     customer: {
-      id: 0,
+      id: 'B9C44749-C0D2-4E16-234F-08DB7CDB4845',
       name: "...",
       lastname: "...",
       email: "ejemplo@email.com",
@@ -17,6 +17,7 @@ export function useMultistep() {
       classification: 0,
     },
     service: {
+      id: '',
       name: "",
       startDate: new Date(),
       endDate: new Date(),
@@ -43,7 +44,8 @@ export function useMultistep() {
   };
 
   const handleChangeStep2 = (date: string) => {
-    let time = new Date(date);
+    const [year, month, day] = date.split('-');
+    const time = new Date(Number(year), Number(month) - 1, Number(day));
     setReservation({ ...reservation, time });
   };
 

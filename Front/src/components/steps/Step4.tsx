@@ -44,8 +44,11 @@ const Step4: React.FC<Step4Props> = ({
   };
   
   const date = reservation.time;
+  console.log(`reservation.time: ${reservation.time}`);
+  console.log(`dayOfWeekBefore: ${reservation.time.getDay()}`);
   const dayOfWeek = getDayOfWeek(date);
-  const scheduleTimes = reservation.service?.schedule[dayOfWeek];
+  console.log(`dayOfWeekAfter: ${dayOfWeek}`);
+  const scheduleTimes = reservation.service?.schedule[reservation.time.getDay()];
   const defaultValue = scheduleTimes?.includes(reservation.time.toLocaleTimeString()) ? reservation.time.toLocaleTimeString() : "";
 
   return (

@@ -16,7 +16,7 @@ const Step3: React.FC<Step3Props> = ({ reservation, onPrev, onNext, onChange }) 
   useEffect(() => {
     const fetchServicesData = async () => {
       try {
-        const services = await fetchServices(reservation.time.toDateString());
+        const services = await fetchServices(reservation.time.toISOString().split("T")[0]);
         setServices(services);
       } catch (error) {
         // Manejar el error aquí según tus necesidades

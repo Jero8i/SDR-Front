@@ -28,7 +28,7 @@ export enum State {
 }
 
 export interface Customer {
-  id: number | null;
+  id: string | null;
   name: string;
   lastname: string;
   email: string;
@@ -37,7 +37,7 @@ export interface Customer {
 }
 
 export interface Reservation {
-  id: number | null;
+  id: string | null;
   customer: Customer;
   service: Service;
   time: Date;
@@ -47,6 +47,7 @@ export interface Reservation {
 }
 
 export interface Service {
+  id: string | null;
   name: string;
   startDate: Date;
   endDate: Date;
