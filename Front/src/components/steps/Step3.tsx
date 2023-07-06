@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { Box, Button, FormControl, Grid, InputLabel, MenuItem, Select } from '@material-ui/core';
+import { Box, Button, FormControl, Grid, InputLabel, MenuItem, Select, SelectChangeEvent, Stack } from '@mui/material';
 import { Item, Reservation, Service } from '../../types';
-import { Stack } from '@mui/material';
 import { fetchServices } from '../../api';
 
 interface Step3Props {
@@ -26,7 +25,7 @@ const Step3: React.FC<Step3Props> = ({ reservation, onPrev, onNext, onChange }) 
     fetchServicesData();
   }, []);
 
-  const handleSelectChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+  const handleSelectChange = (event: SelectChangeEvent) => {
     const selectedServiceId = event.target.value as string;
     const selectedService = services.find(service => service.name === selectedServiceId);
     if (selectedService) {

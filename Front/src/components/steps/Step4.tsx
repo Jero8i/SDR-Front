@@ -7,8 +7,9 @@ import {
   InputLabel,
   MenuItem,
   Select,
-} from "@material-ui/core";
-import { Stack } from "@mui/material";
+  SelectChangeEvent,
+  Stack,
+} from "@mui/material";
 import { Item, Reservation } from "../../types";
 
 function getDayOfWeek(date: Date): number {
@@ -37,9 +38,11 @@ const Step4: React.FC<Step4Props> = ({
   onNext,
   onChange,
 }) => {
-  const handleSelectChange = (event: React.ChangeEvent<{ value: unknown }>) => {
+
+  const handleSelectChange = (event: SelectChangeEvent) => {
     onChange(event.target.value as string);
   };
+  
   const date = reservation.time;
   const dayOfWeek = getDayOfWeek(date);
   const scheduleTimes = reservation.service?.schedule[dayOfWeek];

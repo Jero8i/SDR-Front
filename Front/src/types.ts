@@ -1,18 +1,6 @@
 import Paper from "@mui/material/Paper";
 import { styled } from "@mui/material/styles";
 
-export interface RenderStepContentProps {
-  activeStep: number;
-  reservation: Reservation;
-  handleNext: () => void;
-  handlePrev: () => void;
-  handleChangeStep1: (numberDiners: number) => void;
-  handleChangeStep2: (date: string) => void;
-  handleChangeStep3: (service: Service) => void;
-  handleChangeStep4: (scheduleTime: string) => void;
-  handleSubmit: () => void;
-}
-
 export enum DayOfWeek {
     lunes,
     martes,

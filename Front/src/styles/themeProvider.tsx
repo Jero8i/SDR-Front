@@ -14,4 +14,9 @@ export const theme = createTheme({
             light: '#606C38'
         }
     },
+    typography:{
+        fontFamily: [
+            'Josefin Sans, sans-serif',
+        ].join(','),
+    },
 });
