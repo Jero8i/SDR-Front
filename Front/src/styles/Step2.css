@@ -1,0 +1,13 @@
+@import 'Palette.css';
+
+.css-cwhad8-MuiDateCalendar-root{
+    height: 300px;
+}
+
+.css-p27njf-MuiTypography-root-MuiDayCalendar-weekDayLabel{
+    height: 35px;
+}
+
+.css-flbe84-MuiDayCalendar-weekContainer{
+    height: 35px;
+}
