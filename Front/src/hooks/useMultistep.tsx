@@ -1,5 +1,6 @@
 import { useState } from "react";
 import {
+  Customer,
   Reservation,
   Service,
 } from "../types";
@@ -68,6 +69,10 @@ export function useMultistep() {
     }
   };
 
+  const handleChangeStep5 = (customer: Customer) => {
+    setReservation({ ...reservation, customer});
+  };
+
   const handleSubmit = () => {
     console.log("Reserva enviada:", reservation);
   };
@@ -81,6 +86,7 @@ export function useMultistep() {
     handleChangeStep2,
     handleChangeStep3,
     handleChangeStep4,
+    handleChangeStep5,
     handleSubmit,
   };
 }
