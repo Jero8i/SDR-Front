@@ -12,11 +12,27 @@ export const theme = createTheme({
         success: {
             main: '#283618', 
             light: '#606C38'
+        },
+        error: {
+            main: '#7d1400',
+        },
+        info: {
+            main: '#312926',
         }
     },
     typography:{
         fontFamily: [
             'Josefin Sans, sans-serif',
+            'Roboto Slab, serif',
         ].join(','),
     },
+    components:{
+        MuiButton:{
+            defaultProps:{
+                style:{
+                    
+                }
+            }
+        }
+    }
 });

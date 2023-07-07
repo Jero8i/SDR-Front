@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from 'react';
-import { Box, Button, Grid, InputAdornment, TextField, Typography, useMediaQuery, useTheme } from '@mui/material';
+import { Box, Button, Grid, InputAdornment, TextField, Typography } from '@mui/material';
 import PersonAddIcon from '@mui/icons-material/PersonAdd';
 
 import '../../styles/Step1.css';
@@ -167,7 +167,7 @@ const Step1: React.FC<Step1Props> = ({ numberDiners, onNext, onChange }) => {
         bottom: '5%',
         right: '5%',
       }}>
-        <Button variant="contained" color="primary" onClick={handleNext}>Siguiente</Button>
+        <Button variant="contained" onClick={handleNext}>Siguiente</Button>
       </Grid>
     </Box>
   );
