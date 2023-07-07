@@ -46,12 +46,13 @@ const Step2: React.FC<Step2Props> = ({ date, onPrev, onNext, onChange }) => {
       }}
     >
       <Grid container>
-        <Grid item 
+        <Grid item justifyContent="center"
           sx={{ 
             color: theme.palette.primary.main,
           }}>
           <LocalizationProvider dateAdapter={AdapterDayjs} >
-            <DateCalendar 
+            <DateCalendar              
+              className="calendar" 
               disablePast={true} 
               views={['day']} 
               onChange={handleInputChange}

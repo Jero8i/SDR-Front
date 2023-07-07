@@ -6,6 +6,7 @@ import { Box, Container, Grid } from '@mui/material';
 import StepperComponent from "./components/StepperComponent";
 import background from './images/background.jpg';
 import { theme } from "./styles/themeProvider";
+import { useWindowRezise } from "./hooks/useWindowRezise";
 
 function App() {
   const {
@@ -20,6 +21,8 @@ function App() {
     handleSubmit,
   } = useMultistep();
 
+  const { isMedium, isMobile } = useWindowRezise();
+  
   return (
     <Container 
       sx={{
@@ -38,11 +41,13 @@ function App() {
           backgroundColor: theme.palette.primary.light,
           borderRadius: '10px',
           boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)',
-          height: {
+          height: 
+          isMobile ? '50%' :
+          {
             xs: '40%', sm: '55%', md: '60%', lg: '65%', 
           },
           width: {
-            xs: '80%', sm: '70%', md: '57%', lg: '50%', 
+            xs: '95%', sm: '70%', md: '57%', lg: '50%', 
           },
           position: 'relative',
         }}
@@ -61,7 +66,7 @@ function App() {
             </Grid>
           )}
     
-          <Grid item>
+          <Grid item justifyContent='center' >
             {RenderStepContent({
               activeStep,
               reservation,
