@@ -29,7 +29,8 @@ const EmailLogin: React.FC<EmailLoginProps> = ({
     event.preventDefault();
     try {
       const customer = await customerLogin(email, password);
-      console.log(`Datos del cliente: ${customer}`);
+      console.log("Datos del cliente desde el Back:");
+      console.log(customer);
       reservation.customer = customer;
       onNext();
     } catch (error) {
@@ -57,7 +58,7 @@ const EmailLogin: React.FC<EmailLoginProps> = ({
           <form onSubmit={handleLogin}>
             <Item>
               <TextField type="text" label="Email" required onChange={handleEmailChange}></TextField>
-              <TextField type="text" label="Contraseña" required onChange={handlePasswordChange}></TextField>
+              <TextField type="password" label="Contraseña" required onChange={handlePasswordChange}></TextField>
             </Item>
             <Item>
               <Grid
