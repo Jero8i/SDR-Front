@@ -5,7 +5,6 @@ import { Box, Container, Grid } from '@mui/material';
 
 import StepperComponent from "./components/StepperComponent";
 import background from './images/background.jpg';
-import { theme } from "./styles/themeProvider";
 import { useWindowRezise } from "./hooks/useWindowRezise";
 
 function App() {
@@ -21,7 +20,7 @@ function App() {
     handleSubmit,
   } = useMultistep();
 
-  const { isMedium, isMobile } = useWindowRezise();
+  const { isMobile } = useWindowRezise();
   
   return (
     <Container 
@@ -38,35 +37,43 @@ function App() {
     >
       <Box
         sx={{
-          backgroundColor: theme.palette.primary.light,
+          backgroundColor: "rgba(255, 230, 167, 0.95)",
           borderRadius: '10px',
-          boxShadow: '0 0 10px rgba(0, 0, 0, 0.2)',
+          boxShadow: '0 0 20px rgba(0, 0, 0, 0.3)',
           height: 
           isMobile ? '50%' :
           {
-            xs: '40%', sm: '55%', md: '60%', lg: '65%', 
+            xs: '45%', sm: '55%', md: '60%', lg: '65%', 
           },
-          width: {
-            xs: '95%', sm: '70%', md: '57%', lg: '50%', 
+          width: 
+          isMobile ? '95%' :
+          {
+            xs: '90%', sm: '80%', md: '65%', lg: '55%', 
           },
           position: 'relative',
+          display: "flex",
+          justifyContent:"center",
+          alignItems:"center"
         }}
       >
-        <Grid
-          container
-          direction="column"
-          justifyContent={activeStep !== -1 ? 'flex-start' : 'center'}
-          alignItems="center"
+        
+        <Grid container
+          justifyContent="center"
+          alignItems="stretch"
+          width='100%'
           height= '100%'
         >
 
           {activeStep !== -1 && (
-            <Grid item>
+            <Grid item
+              position= 'absolute'
+            >
              <StepperComponent activeStep={activeStep} />
             </Grid>
           )}
-    
-          <Grid item justifyContent='center' >
+
+          <Grid item
+          >
             {RenderStepContent({
               activeStep,
               reservation,
@@ -79,7 +86,9 @@ function App() {
               handleSubmit,
             })}
           </Grid>
+
         </Grid>
+
       </Box>
     </Container>
   );

@@ -3,21 +3,19 @@ import { createTheme } from '@mui/material/styles';
 export const theme = createTheme({
     palette: {
         primary: {
-            main: '#BC6C25',
-            light: '#FEFAE0',
+            main: '#7d1400',
+            light: '#FFE6A7',
         },
         secondary: {
-            main: '#DDA15E',
+            main: '#BB9457',
         },
         success: {
             main: '#283618', 
             light: '#606C38'
         },
-        error: {
-            main: '#7d1400',
-        },
         info: {
-            main: '#312926',
+            main: '#432818',
+            light: '#99582A'
         }
     },
     typography:{
@@ -28,11 +26,14 @@ export const theme = createTheme({
     },
     components:{
         MuiButton:{
-            defaultProps:{
-                style:{
-                    
-                }
-            }
-        }
-    }
+            styleOverrides:{
+                root:{
+                    backgroundColor: '#432818',
+                    '&:hover': {
+                        backgroundColor: '#7d1400',
+                    },
+                },
+            },
+        },
+    },
 });
