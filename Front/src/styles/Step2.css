@@ -1,8 +1,8 @@
 @import 'Palette.css';
 
-/* Este es el componente en sí */
+/* Este es el contenedor del componente en sí */
 .css-cwhad8-MuiDateCalendar-root{
-    border-radius: 10%;
+    border-radius: 5%;
 }
 
 /* Esta es la fila del mes */
@@ -19,7 +19,7 @@
 .calendar .css-p27njf-MuiTypography-root-MuiDayCalendar-weekDayLabel{
     height: 36px;
     border-radius: 100%;
-    background-color: #DDA15E;
+    background-color: var(--color-info-light);
     color: white;
 }
 
@@ -56,7 +56,7 @@
     }
 }
 
-@media (max-width: 850px) {
+@media (max-width: 900px) {
     .calendar .css-nk89i7-MuiPickersCalendarHeader-root{
         margin-top: 0px;
         margin-bottom: 0px;
@@ -70,7 +70,7 @@
     }
 }
 
-@media (max-width: 770px) {
+@media (max-width: 610px) {
     .calendar .css-p27njf-MuiTypography-root-MuiDayCalendar-weekDayLabel{
         font-size: 10px;
     }
@@ -86,18 +86,7 @@
     }
 }
 
-@media (max-width: 770px) {
-    .calendar .css-1cafy48-MuiPickersSlideTransition-root-MuiDayCalendar-slideTransition{
-        min-height: 100px ;
-    }
-    .calendar .css-flbe84-MuiDayCalendar-weekContainer{
-        height: 25px;
-    }
-    .calendar .Mui-selected.css-1tc1jd4-MuiButtonBase-root-MuiPickersDay-root{
-        height: 25px;
-        width: 25px; 
-    }
-}
+
 
 @media (max-width: 414px) {
     .calendar .css-1cafy48-MuiPickersSlideTransition-root-MuiDayCalendar-slideTransition{

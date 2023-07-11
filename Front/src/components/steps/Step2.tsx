@@ -1,10 +1,14 @@
 import { useState } from "react";
 import Box from '@mui/material/Box';
-import { Button, Grid, TextField, ThemeProvider, Typography } from '@mui/material';
+import { Button, Grid} from '@mui/material';
 import { useWindowRezise } from '../../hooks/useWindowRezise';
 import { theme } from '../../styles/themeProvider';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { DateCalendar, LocalizationProvider } from '@mui/x-date-pickers';
+
+import NavigateNextIcon from '@mui/icons-material/NavigateNext';
+import ChevronLeftIcon from '@mui/icons-material/ChevronLeft';
+
 import dayjs from 'dayjs';
 import 'dayjs/locale/es'; // Importa el idioma español de dayjs
 
@@ -20,9 +24,12 @@ interface Step2Props {
 }
 
 const Step2: React.FC<Step2Props> = ({ date, onPrev, onNext, onChange }) => {
+  
   const handleInputChange = (value: string|null) => {
     if (value!=null){
-      setSelectedDate(value);
+      const formattedDate = dayjs(value).format('DD/MM/YY');
+      setSelectedDate(formattedDate);
+      console.log(formattedDate);
     }
   };
 
@@ -32,12 +39,11 @@ const Step2: React.FC<Step2Props> = ({ date, onPrev, onNext, onChange }) => {
   }
 
   const [selectedDate, setSelectedDate] = useState("");
-  const { isMedium, isMobile } = useWindowRezise();
 
   return (
     <Box
       display="flex"
-      flexDirection= "column"
+      height='100%'
       justifyContent="center"
       alignItems="center"
       sx={{
@@ -45,10 +51,11 @@ const Step2: React.FC<Step2Props> = ({ date, onPrev, onNext, onChange }) => {
         marginTop: '5%', 
       }}
     >
-      <Grid container>
-        <Grid item justifyContent="center"
+      <Grid container >
+        <Grid item 
           sx={{ 
             color: theme.palette.primary.main,
+            mt: {sm:'15%', md:'0%'},
           }}>
           <LocalizationProvider dateAdapter={AdapterDayjs} >
             <DateCalendar              
@@ -61,21 +68,35 @@ const Step2: React.FC<Step2Props> = ({ date, onPrev, onNext, onChange }) => {
         </Grid>
 
         <Grid item
-        sx={{
-          position: 'absolute',
-          bottom: '5%',
-          left: '5%',
-        }}>
-          <Button variant="contained" color="primary" onClick={onPrev}>Anterior</Button>
+          sx={{
+            position: 'absolute',
+            bottom: '5%',
+            left: '5%',
+          }}>
+            <Button variant="contained" onClick={onPrev}
+              sx={{
+                width: '60px',
+                height:'60px',
+                borderRadius: '50%',
+                fontSize:'1px'
+              }}
+            ><ChevronLeftIcon fontSize='small'/></Button>
         </Grid>
 
         <Grid item
-        sx={{
-          position: 'absolute',
-          bottom: '5%',
-          right: '5%',
-        }}>
-          <Button variant="contained" color="primary" onClick={onNext}>Siguiente</Button>
+          sx={{
+            position: 'absolute',
+            bottom: '5%',
+            right: '5%',
+          }}>
+            <Button variant="contained" onClick={handleNext}
+              sx={{
+                width: '60px',
+                height:'60px',
+                borderRadius: '50%',
+                fontSize:'1px',
+              }}
+            ><NavigateNextIcon fontSize='small'/></Button>
         </Grid>
       </Grid>
       
