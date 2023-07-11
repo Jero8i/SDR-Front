@@ -84,6 +84,7 @@ export const RenderStepContent: React.FC<RenderStepContentProps> = ({
       return (
         <Step5
           customer={reservation.customer}
+          reservation={reservation}
           onPrev={handlePrev}
           onNext={handleNext}
           activeOption={activeOption}

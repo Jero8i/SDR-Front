@@ -10,11 +10,12 @@ export function useMultistep() {
   const [reservation, setReservation] = useState<Reservation>({
     id: null,
     customer: {
-      id: 'B9C44749-C0D2-4E16-234F-08DB7CDB4845',
-      name: "...",
-      lastname: "...",
-      email: "ejemplo@email.com",
-      phonenumber: "1234567890",
+      id: "",
+      name: "",
+      lastname: "",
+      email: "",
+      phonenumber: "",
+      password: "",
       classification: 0,
     },
     service: {

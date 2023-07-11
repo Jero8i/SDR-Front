@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Customer } from "../../types";
+import { Customer, Reservation } from "../../types";
 import { Grid, Button } from "@mui/material";
 import EmailLogin from "../userLogin/EmailLogin";
 import EmailRegister from "../userLogin/EmailRegister";
@@ -7,6 +7,7 @@ import GoogleLogin from "../userLogin/GoogleLogin";
 
 interface Step5Props {
   customer: Customer;
+  reservation: Reservation;
   onPrev: () => void;
   onNext: () => void;
   activeOption: number;
@@ -17,6 +18,7 @@ interface Step5Props {
 
 const Step5: React.FC<Step5Props> = ({
   customer,
+  reservation,
   onPrev,
   onNext,
   activeOption,
@@ -70,9 +72,9 @@ const Step5: React.FC<Step5Props> = ({
         </div>
       );
     case 1:
-      return <EmailLogin goBack={goBack} />;
+      return <EmailLogin goBack={goBack} onNext={onNext} reservation={reservation}/>;
     case 2:
-      return <EmailRegister goBack={goBack} />;
+      return <EmailRegister goBack={goBack} onNext={onNext} customer={customer} onChange={onChange}/>;
     case 3:
       return <GoogleLogin goBack={goBack} />;
     default:
