@@ -7,7 +7,6 @@ import FactCheckRoundedIcon from '@mui/icons-material/FactCheckRounded';
 
 import '../styles/Stepper.css';
 import { useWindowRezise } from "../hooks/useWindowRezise";
-import { theme } from '../styles/themeProvider';
 
 const StepperComponent = ({ activeStep }: { activeStep: number }) => {
 
