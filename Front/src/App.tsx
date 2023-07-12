@@ -5,6 +5,7 @@ import { Grid } from '@mui/material';
 
 import StepperComponent from "./components/StepperComponent";
 import "./styles/App.css";
+import { useLogin } from "./hooks/useLogin";
 
 function App() {
   const {
@@ -16,8 +17,15 @@ function App() {
     handleChangeStep2,
     handleChangeStep3,
     handleChangeStep4,
+    handleChangeStep5,
     handleSubmit,
   } = useMultistep();
+
+  const {
+    activeOption,
+    chooseOption,
+    goBack,
+  } = useLogin();
 
   return (
     <div className="background">
@@ -54,7 +62,12 @@ function App() {
             handleChangeStep2,
             handleChangeStep3,
             handleChangeStep4,
+            handleChangeStep5,
             handleSubmit,
+
+            activeOption,
+            chooseOption,
+            goBack,
           })}
         </Grid>
   
